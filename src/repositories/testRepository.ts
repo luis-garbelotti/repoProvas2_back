@@ -76,9 +76,23 @@ async function findByDisciplineId(disciplineId: number) {
   });
 }
 
+async function updateByTestId(testId: number) {
+  await prisma.test.update({
+    where: {
+      id: testId
+    },
+    data: {
+      views: {
+        increment: 1
+      }
+    }
+  });
+}
+
 export default {
   getTestsByDiscipline,
   getTestsByTeachers,
   findByTeacherId,
-  findByDisciplineId
+  findByDisciplineId,
+  updateByTestId
 };

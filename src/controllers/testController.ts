@@ -21,13 +21,20 @@ async function findByTeacherId(req: Request, res: Response) {
 
 async function findByDisciplineId(req: Request, res: Response) {
   const { disciplineId } = req.params;
-
+  
   const tests = await testService.findByDisciplineId(parseInt(disciplineId));
   res.send({ tests });
+}
+
+async function updateByTestId(req: Request, res: Response) {
+  const { testId } = req.params;
+  
+  await testService.updateByTestId(parseInt(testId));
 }
 
 export default {
   find,
   findByTeacherId,
-  findByDisciplineId
+  findByDisciplineId,
+  updateByTestId
 };

@@ -20,8 +20,13 @@ async function findByDisciplineId(disciplineId: number) {
   return testRepository.findByDisciplineId(disciplineId);
 }
 
+async function updateByTestId(testId:number) {
+  return testRepository.updateByTestId(testId);
+}
+
 export default {
   find,
   findByTeacherId,
-  findByDisciplineId
+  findByDisciplineId,
+  updateByTestId
 };

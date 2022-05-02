@@ -19,7 +19,15 @@ async function findByTeacherId(req: Request, res: Response) {
   res.send({ tests });
 }
 
+async function findByDisciplineId(req: Request, res: Response) {
+  const { disciplineId } = req.params;
+
+  const tests = await testService.findByDisciplineId(parseInt(disciplineId));
+  res.send({ tests });
+}
+
 export default {
   find,
-  findByTeacherId
+  findByTeacherId,
+  findByDisciplineId
 };

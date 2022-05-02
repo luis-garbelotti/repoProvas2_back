@@ -16,7 +16,12 @@ async function findByTeacherId(teacherId: number) {
   return testRepository.findByTeacherId(teacherId);
 }
 
+async function findByDisciplineId(disciplineId: number) {
+  return testRepository.findByDisciplineId(disciplineId);
+}
+
 export default {
   find,
-  findByTeacherId
+  findByTeacherId,
+  findByDisciplineId
 };

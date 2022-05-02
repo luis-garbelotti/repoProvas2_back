@@ -12,6 +12,11 @@ async function find(filter: Filter) {
   }
 }
 
+async function findByTeacherId(teacherId: number) {
+  return testRepository.findByTeacherId(teacherId);
+}
+
 export default {
   find,
+  findByTeacherId
 };

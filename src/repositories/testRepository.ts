@@ -35,7 +35,25 @@ async function getTestsByTeachers() {
   });
 }
 
+async function findByTeacherId(teacherId :number) {
+  return prisma.teacherDiscipline.findMany({
+    where: {
+      teacherId
+    },
+    include: {
+      teacher: true,
+      discipline: true,
+      tests: {
+        include: {
+          category: true,
+        },
+      },
+    },
+  });
+}
+
 export default {
   getTestsByDiscipline,
   getTestsByTeachers,
+  findByTeacherId
 };

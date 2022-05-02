@@ -30,6 +30,8 @@ async function updateByTestId(req: Request, res: Response) {
   const { testId } = req.params;
   
   await testService.updateByTestId(parseInt(testId));
+
+  res.sendStatus(200);
 }
 
 export default {

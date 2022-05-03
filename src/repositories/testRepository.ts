@@ -1,3 +1,4 @@
+import { Test } from "@prisma/client";
 import { prisma } from "../database.js";
 
 async function getTestsByDiscipline() {
@@ -89,10 +90,17 @@ async function updateByTestId(testId: number) {
   });
 }
 
+async function insert(test: Test) {
+  await prisma.test.create({
+    data: test
+  })
+}
+
 export default {
   getTestsByDiscipline,
   getTestsByTeachers,
   findByTeacherId,
   findByDisciplineId,
-  updateByTestId
+  updateByTestId,
+  insert
 };

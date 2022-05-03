@@ -34,9 +34,18 @@ async function updateByTestId(req: Request, res: Response) {
   res.sendStatus(200);
 }
 
+async function insert(req: Request, res: Response) {
+  const test = req.body;
+
+  await testService.insert(test);
+
+  res.sendStatus(200);
+}
+
 export default {
   find,
   findByTeacherId,
   findByDisciplineId,
-  updateByTestId
+  updateByTestId,
+  insert
 };

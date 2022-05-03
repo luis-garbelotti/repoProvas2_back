@@ -10,4 +10,10 @@ teacherRouter.get(
     teacherController.findMany
 );
 
+teacherRouter.get(
+    "/teachers/disciplines/:disciplineId",
+    ensureAuthenticatedMiddleware,
+    teacherController.findByDisciplineId
+);
+
 export default teacherRouter;

@@ -1,3 +1,4 @@
+import { Test } from "@prisma/client";
 import testRepository from "../repositories/testRepository.js";
 
 interface Filter {
@@ -24,9 +25,14 @@ async function updateByTestId(testId:number) {
   return testRepository.updateByTestId(testId);
 }
 
+async function insert(test: Test) {
+  return testRepository.insert(test);
+}
+
 export default {
   find,
   findByTeacherId,
   findByDisciplineId,
-  updateByTestId
+  updateByTestId,
+  insert
 };

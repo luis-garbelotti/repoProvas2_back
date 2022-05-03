@@ -3,7 +3,7 @@ import teacherService from "../services/teacherService.js";
 
 async function findMany(req: Request, res: Response) {
     const teachers = await teacherService.findMany();
-    res.send({ teachers: teachers });
+    res.status(200).send({ teachers: teachers });
 }
 
 export default {
